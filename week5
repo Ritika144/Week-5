@@ -1,0 +1,122 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	// Variables, Data Types, and Constants
+	var age int = 30
+	var name string = "John Doe"
+	var isStudent bool = true
+	const pi float64 = 3.14159
+
+	fmt.Printf("Age: %d, Name: %s, Is Student: %t, Pi: %.2f\n", age, name, isStudent, pi)
+
+	// Operators and Expressions
+	a, b := 10, 5
+	sum := a + b
+	diff := a - b
+	product := a * b
+	quotient := a / b
+	remainder := a % b
+
+	fmt.Printf("Sum: %d, Difference: %d, Product: %d, Quotient: %d, Remainder: %d\n", sum, diff, product, quotient, remainder)
+
+	// Comparison and Logical Operators
+	x, y := 5, 10
+	fmt.Printf("x == y: %t\n", x == y)
+	fmt.Printf("x != y: %t\n", x != y)
+	fmt.Printf("x < y: %t\n", x < y)
+	fmt.Printf("x > y: %t\n", x > y)
+	fmt.Printf("x <= y: %t\n", x <= y)
+	fmt.Printf("x >= y: %t\n", x >= y)
+
+	condition1, condition2 := true, false
+	fmt.Printf("condition1 && condition2: %t\n", condition1 && condition2)
+	fmt.Printf("condition1 || condition2: %t\n", condition1 || condition2)
+	fmt.Printf("!condition1: %t\n", !condition1)
+
+	// Control Flow Structures
+	// If-else statement
+	score := 85
+	if score >= 90 {
+		fmt.Println("Grade: A")
+	} else if score >= 80 {
+		fmt.Println("Grade: B")
+	} else if score >= 70 {
+		fmt.Println("Grade: C")
+	} else {
+		fmt.Println("Grade: F")
+	}
+
+	// Switch statement
+	day := "Monday"
+	switch day {
+	case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday":
+		fmt.Println("It's a weekday")
+	case "Saturday", "Sunday":
+		fmt.Println("It's a weekend")
+	default:
+		fmt.Println("Invalid day")
+	}
+
+	// For loop
+	for i := 1; i <= 5; i++ {
+		fmt.Printf("%d ", i)
+	}
+	fmt.Println()
+
+	// Functions
+	result := add(10, 20)
+	fmt.Printf("10 + 20 = %d\n", result)
+
+	area, perimeter := calculateCircle(5)
+	fmt.Printf("Circle with radius 5 - Area: %.2f, Perimeter: %.2f\n", area, perimeter)
+
+	// Arrays, Slices, and Maps
+	// Array
+	var numbers [5]int = [5]int{1, 2, 3, 4, 5}
+	fmt.Println("Array:", numbers)
+
+	// Slice
+	fruits := []string{"apple", "banana", "orange"}
+	fruits = append(fruits, "grape")
+	fmt.Println("Slice:", fruits)
+
+	// Map
+	studentGrades := map[string]int{
+		"Alice":   92,
+		"Bob":     85,
+		"Charlie": 78,
+	}
+	studentGrades["David"] = 88
+	fmt.Println("Map:", studentGrades)
+
+	// Accessing and modifying map elements
+	aliceGrade := studentGrades["Alice"]
+	fmt.Printf("Alice's grade: %d\n", aliceGrade)
+
+	studentGrades["Bob"] = 87
+	fmt.Printf("Bob's updated grade: %d\n", studentGrades["Bob"])
+
+	// Checking if a key exists in a map
+	if grade, exists := studentGrades["Eve"]; exists {
+		fmt.Printf("Eve's grade: %d\n", grade)
+	} else {
+		fmt.Println("Eve is not in the map")
+	}
+}
+
+// Function with parameters and return value
+func add(a, b int) int {
+	return a + b
+}
+
+// Function with multiple return values
+func calculateCircle(radius float64) (float64, float64) {
+	area := math.Pi * radius * radius
+	perimeter := 2 * math.Pi * radius
+	return area, perimeter
+}
